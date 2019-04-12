@@ -3,7 +3,7 @@
 //подключаем классы
 include 'classes/db.class.php';
 
-$db = new db('localhost' ,'u5055967_web-alt' ,'u5055967_web-alt' ,'web-alt-test');
+$db = new db('query');
 $db->db_connect();
 
 ?>
