@@ -1,16 +1,16 @@
 <?php
     class db {
         var $db_server = 'localhost';
-        var $db_name = 'web-alt';
-        var $db_user = 'web-alt';
+        var $db_name = 'u5055967_web-alt';
+        var $db_user = 'u5055967_web-alt';
         var $db_password = 'web-alt-test';
 
 
         function db_connect () {
-            $db_server = 'localhost';
-            $db_name = 'u5055967_web-alt';
-            $db_user = 'u5055967_web-alt';
-            $db_password = 'web-alt-test';
+            // $db_server = 'localhost';
+            // $db_name = 'u5055967_web-alt';
+            // $db_user = 'u5055967_web-alt';
+            // $db_password = 'web-alt-test';
             $link = mysqli_connect($db_server, $db_user, $db_password, $db_name);
             //$link = mysqli_connect("127.0.0.1", "my_user", "my_password", "my_db");
 
