@@ -22,4 +22,5 @@
 
             mysqli_close($link);
         }
+    }
 ?>
