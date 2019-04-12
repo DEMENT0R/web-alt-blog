@@ -5,7 +5,11 @@
         var $db_user = 'u5055967_web-alt';
         var $db_password = 'web-alt-test';
 
-
+        function setConfig($title) 
+        {
+            $this->Title = $title;
+        }
+         
         function db_connect () {
             // $db_server = 'localhost';
             // $db_name = 'u5055967_web-alt';
