@@ -7,10 +7,6 @@
 
 
         function db_connect () {
-            var $db_server = 'localhost';
-            var $db_name = 'web-alt';
-            var $db_user = 'web-alt';
-            var $db_password = 'web-alt-test';
             $link = mysqli_connect($db_server, $db_user, $db_password, $db_name);
             //$link = mysqli_connect("127.0.0.1", "my_user", "my_password", "my_db");
 
