@@ -11,14 +11,14 @@
             //$link = mysqli_connect("127.0.0.1", "my_user", "my_password", "my_db");
 
             if (!$link) {
-                echo "\nОшибка: Невозможно установить соединение с MySQL." . PHP_EOL;
-                echo "\nКод ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
-                echo "\nТекст ошибки error: " . mysqli_connect_error() . PHP_EOL;
+                echo "<br>Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
+                echo "<br>Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
+                echo "<br>Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
                 exit;
             }
 
-            echo "\nСоединение с MySQL установлено!" . PHP_EOL;
-            echo "\nИнформация о сервере: " . mysqli_get_host_info($link) . PHP_EOL;
+            echo "<br>Соединение с MySQL установлено!" . PHP_EOL;
+            echo "<br>Информация о сервере: " . mysqli_get_host_info($link) . PHP_EOL;
 
             mysqli_close($link);
         }
