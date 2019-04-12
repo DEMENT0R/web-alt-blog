@@ -3,6 +3,7 @@
 //подключаем классы
 include 'classes/db.class.php';
 
-db->db_connect();
+$db = new db();
+$db->db_connect();
 
 ?>
