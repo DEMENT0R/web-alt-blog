@@ -1,7 +1,7 @@
 <?php
 
 //подключаем классы
-include 'classes/db_class.php';
+include 'classes/db.class.php';
 
 //Вызываем функцию init
 db::init();
