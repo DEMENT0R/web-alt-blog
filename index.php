@@ -13,6 +13,9 @@ if ($_GET["auth"] != '') {
 } else if ($_GET["profile"] != '') {
 	//подключаем profile
 	include 'partials/profile.php';
+} else if ($_GET["new"] != '') {
+	//подключаем new
+	include 'partials/new.php';
 } else if ($_GET["post"] != '') {
 	//подключаем posts
 	include 'partials/post.php';
