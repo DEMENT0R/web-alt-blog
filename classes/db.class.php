@@ -37,6 +37,7 @@
 
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<h2 class='mt-5'><a href='?post=" . $row['id'] . "'>" . $row['title'] . "</a></h2>";
+                    echo "<p style='color: #999;'>" . $row['time'] . " by " . $row['author'] . "</p>";
                     echo "<p>" . $row['content'] . "</p>";
                 }
 

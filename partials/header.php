@@ -10,6 +10,22 @@
 	<div class="container">
 		<header>
 			<?php include 'partials/nav.php'; ?>
+			<?php if(!$_GET) {
+				echo '<div class="cover text-center text-white">
+					<h1>Web-alt test Blog</h1>
+					<h4>PHP, MySQL, Bootstrap, etc.</h4>
+				</div>';
+			} ?>
+			<style>
+				.cover {
+					background-image: url('/img/cover.jpg');
+					-webkit-background-size: cover;
+					background-size: cover;
+					background-position: center;
+
+					height: 30vh;
+				}
+			</style>
 		</header>
 		<?php 
 			if ($_GET["debug"] == '1') {
