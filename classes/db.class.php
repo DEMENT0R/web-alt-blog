@@ -1,24 +1,71 @@
 <?php
     class db {
-         
-        function query ($query) {
-            $db_server = 'localhost';
-            $db_name = 'u5055967_web-alt';
-            $db_user = 'u5055967_web-alt';
-            $db_password = 'web-alt-test';
-            $link = mysqli_connect($db_server, $db_user, $db_password, $db_name);
-            //$link = mysqli_connect("127.0.0.1", "my_user", "my_password", "my_db");
+        var $db_server = 'localhost';
+        var $db_name = 'u5055967_web-alt';
+        var $db_user = 'u5055967_web-alt';
+        var $db_password = 'web-alt-test';
+
+        function DbTest () {
+            $link = mysqli_connect($this->db_server, $this->db_user, $this->db_password, $this->db_name);
 
             if (!$link) {
-                echo "<br>Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
+                echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
                 echo "<br>Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
                 echo "<br>Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
                 exit;
             }
 
-            echo "<br>Соединение с MySQL установлено!" . PHP_EOL;
-            echo "<br>Информация о сервере: " . mysqli_get_host_info($link) . PHP_EOL;
-            echo "<br> query: " . $query;
+            echo "Соединение с MySQL установлено!" . PHP_EOL;
+            //echo "<br>Информация о сервере: " . mysqli_get_host_info($link) . PHP_EOL;
+            mysqli_close($link);
+        }
+
+        function GetAllPosts () {
+            $link = mysqli_connect($this->db_server, $this->db_user, $this->db_password, $this->db_name);
+
+            if (!$link) {
+                echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
+                echo "<br>Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
+                echo "<br>Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
+                exit;
+            }
+
+            if ($result = $link->query("SELECT * FROM posts LIMIT 10")) {
+                // var_dump($result);
+                // echo "<br>";
+                // printf("\n Select вернул %d строк.\n", $result->num_rows);
+
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<h2 class='mt-5'><a href='?post=" . $row['id'] . "'>" . $row['title'] . "</a></h2>";
+                    echo "<p>" . $row['content'] . "</p>";
+                }
+
+                /* очищаем результирующий набор */
+                $result->close();
+            }
+            mysqli_close($link);
+        }
+
+        function GetPost ($id) {
+            $link = mysqli_connect($this->db_server, $this->db_user, $this->db_password, $this->db_name);
+
+            if (!$link) {
+                echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
+                echo "<br>Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
+                echo "<br>Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
+                exit;
+            }
+
+            if ($result = $link->query("SELECT * FROM posts WHERE id=$id")) {
+
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<h2 class='mt-5'><a href='?post=" . $row['id'] . "'>" . $row['title'] . "</a></h2>";
+                    echo "<p>" . $row['content'] . "</p>";
+                }
+
+                /* очищаем результирующий набор */
+                $result->close();
+            }
             mysqli_close($link);
         }
     }
